@@ -1,4 +1,4 @@
-﻿namespace SMSBO.Web.Menus;
+namespace SMSBO.Web.Menus;
 
 public class SMSBOMenus
 {
@@ -7,4 +7,5 @@ public class SMSBOMenus
 
     //Add your menu items here...
 
+        public const string Teacher = Prefix + ".Teacher";
 }

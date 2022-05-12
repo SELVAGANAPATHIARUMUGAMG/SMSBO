@@ -3,6 +3,21 @@
   "texts": {
     "Menu:Home": "Ana sayfa",
     "Welcome": "Hoşgeldiniz",
-    "LongWelcomeMessage": "Uygulamaya hoşgeldiniz. Bu, ABP framework'ü üzerine bina edilmiş bir başlangıç projesidir. Daha fazla bilgi için abp.io adresini ziyaret edebilirsiniz."
+    "LongWelcomeMessage": "Uygulamaya hoşgeldiniz. Bu, ABP framework'ü üzerine bina edilmiş bir başlangıç projesidir. Daha fazla bilgi için abp.io adresini ziyaret edebilirsiniz.",
+    "Permission:Teacher": "Teacher",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Teacher": "MenuTeacher",
+    "Teacher": "Teacher",
+    "TeacherName": "TeacherName",
+    "TeacherAge": "TeacherAge",
+    "TeacherDOB": "TeacherDOB",
+    "TeacherContextNumber": "TeacherContextNumber",
+    "TeacherEmailID": "TeacherEmailID",
+    "CreateTeacher": "CreateTeacher",
+    "EditTeacher": "EditTeacher",
+    "TeacherDeletionConfirmationMessage": "Are you sure to delete the teacher {0}?",
+    "SuccessfullyDeleted": "Successfully deleted"
   }
 }

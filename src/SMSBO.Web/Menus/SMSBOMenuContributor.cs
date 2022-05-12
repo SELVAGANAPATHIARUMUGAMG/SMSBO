@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
+using SMSBO.Permissions;
 using SMSBO.Localization;
 using SMSBO.MultiTenancy;
 using Volo.Abp.Identity.Web.Navigation;
@@ -45,5 +46,11 @@ public class SMSBOMenuContributor : IMenuContributor
 
         administration.SetSubItemOrder(IdentityMenuNames.GroupName, 2);
         administration.SetSubItemOrder(SettingManagementMenuNames.GroupName, 3);
+            if (await context.IsGrantedAsync(SMSBOPermissions.Teacher.Default))
+            {
+                context.Menu.AddItem(
+                    new ApplicationMenuItem(SMSBOMenus.Teacher, l["Menu:Teacher"], "/Teachers/Teacher")
+                );
+            }
     }
 }

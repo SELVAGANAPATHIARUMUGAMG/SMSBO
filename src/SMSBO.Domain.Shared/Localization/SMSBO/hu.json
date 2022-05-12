@@ -3,6 +3,21 @@
   "texts": {
     "Menu:Home": "Kezdőlap",
     "Welcome": "Üdvözlöm",
-    "LongWelcomeMessage": "Üdvözöljük az alkalmazásban. Ez egy ABP keretrendszeren alapuló startup projekt. További információkért látogasson el az abp.io oldalra."
+    "LongWelcomeMessage": "Üdvözöljük az alkalmazásban. Ez egy ABP keretrendszeren alapuló startup projekt. További információkért látogasson el az abp.io oldalra.",
+    "Permission:Teacher": "Teacher",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Teacher": "MenuTeacher",
+    "Teacher": "Teacher",
+    "TeacherName": "TeacherName",
+    "TeacherAge": "TeacherAge",
+    "TeacherDOB": "TeacherDOB",
+    "TeacherContextNumber": "TeacherContextNumber",
+    "TeacherEmailID": "TeacherEmailID",
+    "CreateTeacher": "CreateTeacher",
+    "EditTeacher": "EditTeacher",
+    "TeacherDeletionConfirmationMessage": "Are you sure to delete the teacher {0}?",
+    "SuccessfullyDeleted": "Successfully deleted"
   }
 }

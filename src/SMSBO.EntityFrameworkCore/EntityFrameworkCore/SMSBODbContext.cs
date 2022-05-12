@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -12,6 +12,8 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
+using SMSBO.Teachers;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace SMSBO.EntityFrameworkCore;
 
@@ -51,6 +53,7 @@ public class SMSBODbContext :
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
     #endregion
+        public DbSet<Teacher> Teachers { get; set; }
 
     public SMSBODbContext(DbContextOptions<SMSBODbContext> options)
         : base(options)
@@ -81,5 +84,15 @@ public class SMSBODbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+
+
+            builder.Entity<Teacher>(b =>
+            {
+                b.ToTable(SMSBOConsts.DbTablePrefix + "Teachers", SMSBOConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
     }
 }

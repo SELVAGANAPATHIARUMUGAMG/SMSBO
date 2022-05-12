@@ -3,6 +3,21 @@
   "texts": {
     "Menu:Home": "الرئيسية",
     "Welcome": "مرحبا",
-    "LongWelcomeMessage": "مرحبا بكم في التطبيق. هذا مشروع بدء تشغيل يعتمد على إطار عمل ABP. لمزيد من المعلومات ، يرجى زيارة abp.io."
+    "LongWelcomeMessage": "مرحبا بكم في التطبيق. هذا مشروع بدء تشغيل يعتمد على إطار عمل ABP. لمزيد من المعلومات ، يرجى زيارة abp.io.",
+    "Permission:Teacher": "Teacher",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Teacher": "MenuTeacher",
+    "Teacher": "Teacher",
+    "TeacherName": "TeacherName",
+    "TeacherAge": "TeacherAge",
+    "TeacherDOB": "TeacherDOB",
+    "TeacherContextNumber": "TeacherContextNumber",
+    "TeacherEmailID": "TeacherEmailID",
+    "CreateTeacher": "CreateTeacher",
+    "EditTeacher": "EditTeacher",
+    "TeacherDeletionConfirmationMessage": "Are you sure to delete the teacher {0}?",
+    "SuccessfullyDeleted": "Successfully deleted"
   }
 }

@@ -1,1 +1,4 @@
-/* Your Global Styles */
+﻿/* Your Global Styles */
+.fa-list {
+    padding-right: 1em !important;
+}
