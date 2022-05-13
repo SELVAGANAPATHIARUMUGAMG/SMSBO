@@ -1,0 +1,48 @@
+@page
+@using SMSBO.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using SMSBO.Web.Pages.OfficeStaffs.OfficeStaff
+@using SMSBO.Localization
+@using SMSBO.Web.Menus
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SMSBOResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["OfficeStaff"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:OfficeStaff"].Value);
+    PageLayout.Content.MenuItemName = SMSBOMenus.OfficeStaff;
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/OfficeStaffs/OfficeStaff/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/OfficeStaffs/OfficeStaff/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["OfficeStaff"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-end">
+			    @if (await Authorization.IsGrantedAsync(SMSBOPermissions.OfficeStaff.Create))
+                {
+                <abp-button id="NewOfficeStaffButton"
+                            text="@L["Add New"].Value" style="background-color: teal;color: white;"
+                            icon="plus"
+                             />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="OfficeStaffTable" class="nowrap"/>
+    </abp-card-body>
+</abp-card>

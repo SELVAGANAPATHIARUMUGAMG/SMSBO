@@ -45,30 +45,24 @@ $(function () {
                 }
             },
             {
-                title: l('TeacherName'),
+                title: l('Name'),
                 data: "name"
             },
             {
-                title: l('TeacherAge'),
+                title: l('Age'),
                 data: "age"
             },
+            //{
+            //    title: l('TeacherDOB'),
+            //    data: "dOB",
+                
+            //},
             {
-                title: l('TeacherDOB'),
-                data: "dOB",
-                render: function (data) {
-                    return luxon
-                        .DateTime
-                        .fromISO(data, {
-                            locale: abp.localization.currentCulture.name
-                        }).toLocaleString(luxon.DateTime.DATETIME_SHORT);
-                }
-            },
-            {
-                title: l('TeacherContextNumber'),
+                title: l('ContextNumber'),
                 data: "contextNumber"
             },
             {
-                title: l('TeacherEmailID'),
+                title: l('EmailID'),
                 data: "emailID"
             },
         ]

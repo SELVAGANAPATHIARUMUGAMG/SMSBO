@@ -8,4 +8,6 @@ public class SMSBOMenus
     //Add your menu items here...
 
         public const string Teacher = Prefix + ".Teacher";
+        public const string OfficeStaff = Prefix + ".OfficeStaff";
+        public const string Vehicledetail = Prefix + ".Vehicledetail";
 }

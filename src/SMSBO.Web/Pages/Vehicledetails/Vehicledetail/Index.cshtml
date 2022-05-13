@@ -1,0 +1,48 @@
+@page
+@using SMSBO.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using SMSBO.Web.Pages.Vehicledetails.Vehicledetail
+@using SMSBO.Localization
+@using SMSBO.Web.Menus
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SMSBOResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Vehicledetail"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Vehicledetail"].Value);
+    PageLayout.Content.MenuItemName = SMSBOMenus.Vehicledetail;
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Vehicledetails/Vehicledetail/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Vehicledetails/Vehicledetail/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Vehicledetail"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-end">
+			    @if (await Authorization.IsGrantedAsync(SMSBOPermissions.Vehicledetail.Create))
+                {
+                <abp-button id="NewVehicledetailButton" style="background-color: teal;color: white;"
+                            text="@L["Add New"].Value" 
+                            icon="plus"
+                             />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="VehicledetailTable" class="nowrap"/>
+    </abp-card-body>
+</abp-card>

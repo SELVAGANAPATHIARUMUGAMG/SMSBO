@@ -14,4 +14,20 @@ public static class SMSBOPermissions
             public const string Create = Default + ".Create";
             public const string Delete = Default + ".Delete";
         }
+
+        public class OfficeStaff
+        {
+            public const string Default = GroupName + ".OfficeStaff";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
+
+        public class Vehicledetail
+        {
+            public const string Default = GroupName + ".Vehicledetail";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
 }

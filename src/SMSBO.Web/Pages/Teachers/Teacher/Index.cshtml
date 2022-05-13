@@ -35,9 +35,9 @@
 			    @if (await Authorization.IsGrantedAsync(SMSBOPermissions.Teacher.Create))
                 {
                 <abp-button id="NewTeacherButton"
-                            text="@L["CreateTeacher"].Value"
+                            text="@L["Add New"].Value" style="background-color: teal;color: white;"
                             icon="plus"
-                            button-type="Primary" />
+                            />
                 }
             </abp-column>
         </abp-row>

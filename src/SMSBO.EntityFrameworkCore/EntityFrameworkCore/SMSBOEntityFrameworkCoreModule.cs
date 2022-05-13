@@ -1,3 +1,5 @@
+using SMSBO.Vehicledetails;
+using SMSBO.OfficeStaffs;
 using SMSBO.Teachers;
 using System;
 using Microsoft.Extensions.DependencyInjection;
@@ -42,6 +44,8 @@ public class SMSBOEntityFrameworkCoreModule : AbpModule
                  * default repositories only for aggregate roots */
             options.AddDefaultRepositories(includeAllEntities: true);
                 options.AddRepository<Teacher, TeacherRepository>();
+                options.AddRepository<OfficeStaff, OfficeStaffRepository>();
+                options.AddRepository<Vehicledetail, VehicledetailRepository>();
         });
 
         Configure<AbpDbContextOptions>(options =>

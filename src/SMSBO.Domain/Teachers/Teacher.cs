@@ -11,7 +11,7 @@ namespace SMSBO.Teachers
     {
         public string Name { get; set; }
         public int Age { get; set; }
-        public DateTime DOB { get; set; }
+        //public DateTime DOB { get; set; }
         public string ContextNumber { get; set; }
         public string EmailID { get; set; }
         protected Teacher() { }
@@ -21,14 +21,14 @@ namespace SMSBO.Teachers
             Guid id,
             string name,
             int age,
-            DateTime dOB,
+           // DateTime dOB,
             string contextNumber,
             string emailID
         ) : base(id)
         {
             Name = name;
             Age = age;
-            DOB = dOB;
+            //DOB = dOB;
             ContextNumber = contextNumber;
             EmailID = emailID;
         }

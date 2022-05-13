@@ -49,7 +49,32 @@ public class SMSBOMenuContributor : IMenuContributor
             if (await context.IsGrantedAsync(SMSBOPermissions.Teacher.Default))
             {
                 context.Menu.AddItem(
-                    new ApplicationMenuItem(SMSBOMenus.Teacher, l["Menu:Teacher"], "/Teachers/Teacher")
+                    new ApplicationMenuItem(
+                        SMSBOMenus.Teacher, 
+                        l["Teacher"],  
+                        url:"/Teachers/Teacher",
+                        icon: "fas fa-users")
+                );
+            }
+            if (await context.IsGrantedAsync(SMSBOPermissions.OfficeStaff.Default))
+            {
+                context.Menu.AddItem(
+                    new ApplicationMenuItem(
+                        SMSBOMenus.OfficeStaff, 
+                        l["OfficeStaff"], 
+                        url:"/OfficeStaffs/OfficeStaff",
+                        icon: "fas fa-users"
+                        )
+                );
+            }
+            if (await context.IsGrantedAsync(SMSBOPermissions.Vehicledetail.Default))
+            {
+                context.Menu.AddItem(
+                    new ApplicationMenuItem(
+                        SMSBOMenus.Vehicledetail,
+                        l["Vehicledetail"], 
+                        url:"/Vehicledetails/Vehicledetail",
+                        icon: "fas fa-bus")
                 );
             }
     }

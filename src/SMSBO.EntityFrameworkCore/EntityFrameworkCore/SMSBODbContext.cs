@@ -14,6 +14,8 @@ using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using SMSBO.Teachers;
 using Volo.Abp.EntityFrameworkCore.Modeling;
+using SMSBO.OfficeStaffs;
+using SMSBO.Vehicledetails;
 
 namespace SMSBO.EntityFrameworkCore;
 
@@ -54,6 +56,8 @@ public class SMSBODbContext :
 
     #endregion
         public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<OfficeStaff> OfficeStaffs { get; set; }
+        public DbSet<Vehicledetail> Vehicledetails { get; set; }
 
     public SMSBODbContext(DbContextOptions<SMSBODbContext> options)
         : base(options)
@@ -89,6 +93,26 @@ public class SMSBODbContext :
             builder.Entity<Teacher>(b =>
             {
                 b.ToTable(SMSBOConsts.DbTablePrefix + "Teachers", SMSBOConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
+
+
+            builder.Entity<OfficeStaff>(b =>
+            {
+                b.ToTable(SMSBOConsts.DbTablePrefix + "OfficeStaffs", SMSBOConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
+
+
+            builder.Entity<Vehicledetail>(b =>
+            {
+                b.ToTable(SMSBOConsts.DbTablePrefix + "Vehicledetails", SMSBOConsts.DbSchema);
                 b.ConfigureByConvention(); 
                 
 
