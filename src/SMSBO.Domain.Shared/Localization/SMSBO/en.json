@@ -90,24 +90,6 @@
     "Student12EmailID": "Student12EmailID",
     "CreateStudent12": "CreateStudent12",
     "EditStudent12": "EditStudent12",
-    "Student12DeletionConfirmationMessage": "Are you sure to delete the student {0}?",
-    "Student11Department": "Student11Department",
-    "Permission:Mark": "Mark",
-    "Menu:Mark": "MenuMark",
-    "Mark": "Mark",
-    "MarkExamType": "MarkExamType",
-    "MarkTamil": "MarkTamil",
-    "MarkEnglish": "MarkEnglish",
-    "MarkMathmatics": "MarkMathmatics",
-    "MarkScience": "MarkScience",
-    "MarkSocialScience": "MarkSocialScience",
-    "MarkTotal": "MarkTotal",
-    "CreateMark": "CreateMark",
-    "EditMark": "EditMark",
-    "MarkDeletionConfirmationMessage": "Are you sure to delete the mark {0}?",
-    "Enum:ExamTypes:0": "MonthlyExams",
-    "Enum:ExamTypes:1": "QuaterlyExam",
-    "Enum:ExamTypes:2": "HalfyearlyExam",
-    "Enum:ExamTypes:3": "RevisionTest"
+    "Student12DeletionConfirmationMessage": "Are you sure to delete the student {0}?"
   }
 }

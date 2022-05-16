@@ -42,10 +42,7 @@ public class SMSBOPermissionDefinitionProvider : PermissionDefinitionProvider
             student12Permission.AddChild(SMSBOPermissions.Student12.Update, L("Permission:Update"));
             student12Permission.AddChild(SMSBOPermissions.Student12.Delete, L("Permission:Delete"));
 
-            var markPermission = myGroup.AddPermission(SMSBOPermissions.Mark.Default, L("Permission:Mark"));
-            markPermission.AddChild(SMSBOPermissions.Mark.Create, L("Permission:Create"));
-            markPermission.AddChild(SMSBOPermissions.Mark.Update, L("Permission:Update"));
-            markPermission.AddChild(SMSBOPermissions.Mark.Delete, L("Permission:Delete"));
+            
     }
 
     private static LocalizableString L(string name)
