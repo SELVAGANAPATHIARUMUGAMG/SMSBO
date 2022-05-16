@@ -30,4 +30,36 @@ public static class SMSBOPermissions
             public const string Create = Default + ".Create";
             public const string Delete = Default + ".Delete";
         }
+
+        public class Student
+        {
+            public const string Default = GroupName + ".Student";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
+
+        public class Student11
+        {
+            public const string Default = GroupName + ".Student11";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
+
+        public class Student12
+        {
+            public const string Default = GroupName + ".Student12";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
+
+        public class Mark
+        {
+            public const string Default = GroupName + ".Mark";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
 }

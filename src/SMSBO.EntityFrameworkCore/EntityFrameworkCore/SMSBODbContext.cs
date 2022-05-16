@@ -16,6 +16,8 @@ using SMSBO.Teachers;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using SMSBO.OfficeStaffs;
 using SMSBO.Vehicledetails;
+using SMSBO.Students;
+
 
 namespace SMSBO.EntityFrameworkCore;
 
@@ -58,6 +60,9 @@ public class SMSBODbContext :
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<OfficeStaff> OfficeStaffs { get; set; }
         public DbSet<Vehicledetail> Vehicledetails { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Student11> Student11s { get; set; }
+        public DbSet<Student12> Student12s { get; set; }
 
     public SMSBODbContext(DbContextOptions<SMSBODbContext> options)
         : base(options)
@@ -115,6 +120,36 @@ public class SMSBODbContext :
                 b.ToTable(SMSBOConsts.DbTablePrefix + "Vehicledetails", SMSBOConsts.DbSchema);
                 b.ConfigureByConvention(); 
                 
+
+                /* Configure more properties here */
+            });
+
+
+            builder.Entity<Student>(b =>
+            {
+                b.ToTable(SMSBOConsts.DbTablePrefix + "Students", SMSBOConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
+
+
+            builder.Entity<Student11>(b =>
+            {
+                b.ToTable(SMSBOConsts.DbTablePrefix + "Student11s", SMSBOConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
+
+
+            builder.Entity<Student12>(b =>
+            {
+                b.ToTable(SMSBOConsts.DbTablePrefix + "Student12s", SMSBOConsts.DbSchema);
+                b.ConfigureByConvention();
+
 
                 /* Configure more properties here */
             });

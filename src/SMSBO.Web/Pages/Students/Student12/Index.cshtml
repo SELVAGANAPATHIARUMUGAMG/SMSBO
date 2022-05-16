@@ -1,0 +1,48 @@
+@page
+@using SMSBO.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using SMSBO.Web.Pages.Students.Student12
+@using SMSBO.Localization
+@using SMSBO.Web.Menus
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SMSBOResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Student12"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Student12"].Value);
+    PageLayout.Content.MenuItemName = SMSBOMenus.Student12;
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Students/Student12/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Students/Student12/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Class XII"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-end">
+			    @if (await Authorization.IsGrantedAsync(SMSBOPermissions.Student12.Create))
+                {
+                <abp-button id="NewStudent12Button"
+                            text="@L["Add New"].Value" style="background-color:teal;color:white;"
+                            icon="plus"
+                             />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="Student12Table" class="nowrap"/>
+    </abp-card-body>
+</abp-card>

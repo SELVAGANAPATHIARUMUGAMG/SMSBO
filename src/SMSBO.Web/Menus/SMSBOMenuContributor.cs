@@ -32,8 +32,41 @@ public class SMSBOMenuContributor : IMenuContributor
                 "~/",
                 icon: "fas fa-home",
                 order: 0
-            )
+            ));
+        var student = new ApplicationMenuItem(
+            "Student",
+            l["Students"],
+            icon: "fas fa-user-graduate"
         );
+
+        context.Menu.AddItem(student);
+        if (await context.IsGrantedAsync(SMSBOPermissions.Student.Default))
+        {
+            student.AddItem(new ApplicationMenuItem(
+              "Student.Student",
+              l["Class X"],
+              icon: "fas fa-chalkboard-teacher",
+             url: "/Students/Student"
+         ));
+        }
+        if (await context.IsGrantedAsync(SMSBOPermissions.Student11.Default))
+        {
+            student.AddItem(new ApplicationMenuItem(
+                "Student.Student11",
+                l["Class XI"],
+                icon: "fas fa-chalkboard-teacher",
+               url: "/Students/Student11"
+           ));
+        }
+        if (await context.IsGrantedAsync(SMSBOPermissions.Student12.Default))
+        {
+            student.AddItem(new ApplicationMenuItem(
+                "Student.Student12",
+                l["Class XII"],
+                icon: "fas fa-chalkboard-teacher",
+               url: "/Students/Student12"
+           ));
+        }
 
         if (MultiTenancyConsts.IsEnabled)
         {
@@ -77,5 +110,6 @@ public class SMSBOMenuContributor : IMenuContributor
                         icon: "fas fa-bus")
                 );
             }
+         
     }
 }
