@@ -1,0 +1,48 @@
+@page
+@using SMSBO.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using SMSBO.Web.Pages.Marks.Mark
+@using SMSBO.Localization
+@using SMSBO.Web.Menus
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SMSBOResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Mark"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Mark"].Value);
+    PageLayout.Content.MenuItemName = SMSBOMenus.Mark;
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Marks/Mark/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Marks/Mark/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Mark"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-end">
+			    @if (await Authorization.IsGrantedAsync(SMSBOPermissions.Mark.Create))
+                {
+                <abp-button id="NewMarkButton"
+                            text="@L["CreateMark"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="MarkTable" class="nowrap"/>
+    </abp-card-body>
+</abp-card>

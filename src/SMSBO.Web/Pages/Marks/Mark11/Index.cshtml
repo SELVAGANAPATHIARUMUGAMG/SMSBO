@@ -1,0 +1,48 @@
+@page
+@using SMSBO.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using SMSBO.Web.Pages.Marks.Mark11
+@using SMSBO.Localization
+@using SMSBO.Web.Menus
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SMSBOResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Mark11"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Mark11"].Value);
+    PageLayout.Content.MenuItemName = SMSBOMenus.Mark11;
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Marks/Mark11/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Marks/Mark11/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Mark11"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-end">
+			    @if (await Authorization.IsGrantedAsync(SMSBOPermissions.Mark11.Create))
+                {
+                <abp-button id="NewMark11Button"
+                            text="@L["CreateMark11"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="Mark11Table" class="nowrap"/>
+    </abp-card-body>
+</abp-card>

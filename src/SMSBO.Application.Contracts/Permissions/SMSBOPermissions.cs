@@ -56,4 +56,28 @@ public static class SMSBOPermissions
         }
 
        
+
+        public class Mark
+        {
+            public const string Default = GroupName + ".Mark";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
+
+        public class Mark11
+        {
+            public const string Default = GroupName + ".Mark11";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
+
+        public class Mark12
+        {
+            public const string Default = GroupName + ".Mark12";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
 }

@@ -36,3 +36,8 @@ $(function () {
         });
     });
 });
+$(document).ready(function () {
+    $("#10Mark").click(function () {
+        window.location.href = '/Marks/Mark';
+    });
+});

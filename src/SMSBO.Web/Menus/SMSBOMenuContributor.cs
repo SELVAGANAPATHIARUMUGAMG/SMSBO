@@ -110,6 +110,5 @@ public class SMSBOMenuContributor : IMenuContributor
                         icon: "fas fa-bus")
                 );
             }
-         
     }
 }

@@ -24,7 +24,7 @@ namespace SMSBO.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("SMSBO.Marks.Students.Mark", b =>
+            modelBuilder.Entity("SMSBO.Marks.Mark", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -65,7 +65,7 @@ namespace SMSBO.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("LastModifierId");
 
-                    b.Property<int>("Mathmatics")
+                    b.Property<int>("Maths")
                         .HasColumnType("int");
 
                     b.Property<int>("Science")
@@ -77,12 +77,122 @@ namespace SMSBO.Migrations
                     b.Property<int>("Tamil")
                         .HasColumnType("int");
 
-                    b.Property<int>("Total")
+                    b.HasKey("Id");
+
+                    b.ToTable("AppMarks", (string)null);
+                });
+
+            modelBuilder.Entity("SMSBO.Marks.Mark11", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<Guid?>("CreatorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CreatorId");
+
+                    b.Property<Guid?>("DeleterId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("DeleterId");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeletionTime");
+
+                    b.Property<int>("English")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastModificationTime");
+
+                    b.Property<Guid?>("LastModifierId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("LastModifierId");
+
+                    b.Property<int>("Maths")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Science")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SocialScience")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Tamil")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppMarks", (string)null);
+                    b.ToTable("AppMark11s", (string)null);
+                });
+
+            modelBuilder.Entity("SMSBO.Marks.Mark12", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Chemistry")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ComputerScience")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<Guid?>("CreatorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CreatorId");
+
+                    b.Property<Guid?>("DeleterId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("DeleterId");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeletionTime");
+
+                    b.Property<int>("English")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
+
+                    b.Property<int>("Language")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastModificationTime");
+
+                    b.Property<Guid?>("LastModifierId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("LastModifierId");
+
+                    b.Property<int>("Maths")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Physcics")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppMark12s", (string)null);
                 });
 
             modelBuilder.Entity("SMSBO.OfficeStaffs.OfficeStaff", b =>

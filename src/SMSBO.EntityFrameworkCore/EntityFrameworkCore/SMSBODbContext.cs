@@ -17,6 +17,7 @@ using Volo.Abp.EntityFrameworkCore.Modeling;
 using SMSBO.OfficeStaffs;
 using SMSBO.Vehicledetails;
 using SMSBO.Students;
+using SMSBO.Marks;
 
 
 namespace SMSBO.EntityFrameworkCore;
@@ -63,6 +64,9 @@ public class SMSBODbContext :
         public DbSet<Student> Students { get; set; }
         public DbSet<Student11> Student11s { get; set; }
         public DbSet<Student12> Student12s { get; set; }
+        public DbSet<Mark> Marks { get; set; }
+        public DbSet<Mark11> Mark11s { get; set; }
+        public DbSet<Mark12> Mark12s { get; set; }
 
     public SMSBODbContext(DbContextOptions<SMSBODbContext> options)
         : base(options)
@@ -150,6 +154,37 @@ public class SMSBODbContext :
                 b.ToTable(SMSBOConsts.DbTablePrefix + "Student12s", SMSBOConsts.DbSchema);
                 b.ConfigureByConvention();
 
+
+                /* Configure more properties here */
+            });
+
+
+            builder.Entity<Mark>(b =>
+            {
+                b.ToTable(SMSBOConsts.DbTablePrefix + "Marks", SMSBOConsts.DbSchema);
+                b.ConfigureByConvention();
+
+                /* Configure more properties here */
+                //b.HasOne<Student>().WithMany().HasForeignKey(x => x.StudentId).IsRequired();
+
+            });
+
+
+            builder.Entity<Mark11>(b =>
+            {
+                b.ToTable(SMSBOConsts.DbTablePrefix + "Mark11s", SMSBOConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
+
+
+            builder.Entity<Mark12>(b =>
+            {
+                b.ToTable(SMSBOConsts.DbTablePrefix + "Mark12s", SMSBOConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
 
                 /* Configure more properties here */
             });

@@ -1,3 +1,4 @@
+using SMSBO.Marks;
 using SMSBO.Students;
 using SMSBO.Vehicledetails;
 using SMSBO.OfficeStaffs;
@@ -50,6 +51,9 @@ public class SMSBOEntityFrameworkCoreModule : AbpModule
                 options.AddRepository<Student, StudentRepository>();
                 options.AddRepository<Student11, Student11Repository>();
                 options.AddRepository<Student12, Student12Repository>();
+                options.AddRepository<Mark, MarkRepository>();
+                options.AddRepository<Mark11, Mark11Repository>();
+                options.AddRepository<Mark12, Mark12Repository>();
         });
 
         Configure<AbpDbContextOptions>(options =>
