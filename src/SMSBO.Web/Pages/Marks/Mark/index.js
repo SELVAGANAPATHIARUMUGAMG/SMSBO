@@ -45,6 +45,10 @@ $(function () {
                 }
             },
             {
+                title: l('Name'),
+                data: "name"
+            },
+            {
                 title: l('ExamType'),
                 data: "examType",
                 render: function (data) {

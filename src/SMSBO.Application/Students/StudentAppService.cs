@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using SMSBO.Marks;
+using SMSBO.Marks.Dtos;
 using SMSBO.Permissions;
 using SMSBO.Students.Dtos;
 using Volo.Abp.Application.Dtos;
@@ -16,10 +20,30 @@ namespace SMSBO.Students
         protected override string DeletePolicyName { get; set; } = SMSBOPermissions.Student.Delete;
 
         private readonly IStudentRepository _repository;
-        
-        public StudentAppService(IStudentRepository repository) : base(repository)
+        private readonly IMarkRepository _markRepository;
+
+        public StudentAppService(IStudentRepository repository, IMarkRepository markRepository) : base(repository)
         {
             _repository = repository;
+            _markRepository = markRepository;
+        }
+        public async Task<List<MarkDto>> GetMarkOfStudentAsync(Guid id)
+        {
+            var marklList = await _markRepository.GetListAsync();
+
+            List<MarkDto> deviceDetailsOfCustomer = new List<MarkDto>();
+
+            foreach (Mark mark in marklList)
+            {
+                if (mark.StudentId == id)
+                {
+                    /// converts to the DeviceDetailDto using the object to object mapper. 
+                    var devicedetailDto = ObjectMapper.Map<Mark, MarkDto>(mark);
+                    deviceDetailsOfCustomer.Add(devicedetailDto);
+                }
+            }
+
+            return deviceDetailsOfCustomer;
         }
     }
 }

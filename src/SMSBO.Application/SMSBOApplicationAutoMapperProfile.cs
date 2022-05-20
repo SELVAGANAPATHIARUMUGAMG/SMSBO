@@ -40,5 +40,7 @@ public class SMSBOApplicationAutoMapperProfile : Profile
             CreateMap<CreateUpdateMark11Dto, Mark11>(MemberList.Source);
             CreateMap<Mark12, Mark12Dto>();
             CreateMap<CreateUpdateMark12Dto, Mark12>(MemberList.Source);
+            CreateMap<Student, StudentLookupDto>();
+
     }
 }

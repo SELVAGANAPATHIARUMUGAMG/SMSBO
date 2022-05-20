@@ -21,7 +21,7 @@ namespace SMSBO.Marks
         public int Science { get; set; }
         [Range(0, 100)]
         public int SocialScience { get; set; }
-        //public  Guid StudentId { get; set; }
+        public  Guid StudentId { get; set; }
 
         protected Mark() { }
 
@@ -32,8 +32,8 @@ namespace SMSBO.Marks
             int english,
             int maths,
             int science,
-            int socialScience
-            //Guid studentId
+            int socialScience,
+            Guid studentId
         ) : base(id)
         {
             ExamType = examType;
@@ -42,7 +42,7 @@ namespace SMSBO.Marks
             Maths = maths;
             Science = science;
             SocialScience = socialScience;
-            //StudentId = studentId;
+            StudentId = studentId;
         }
     }
 }

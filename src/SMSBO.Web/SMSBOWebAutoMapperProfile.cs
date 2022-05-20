@@ -9,12 +9,13 @@ using SMSBO.Web.Pages.Students.Student.ViewModels;
 using SMSBO.Web.Pages.Students.Student11.ViewModels;
 using SMSBO.Web.Pages.Students.Student12.ViewModels;
 using SMSBO.Marks.Dtos;
-using SMSBO.Web.Pages.Marks.Mark.ViewModels;
-using SMSBO.Marks.Dtos;
 using SMSBO.Web.Pages.Marks.Mark11.ViewModels;
-using SMSBO.Marks.Dtos;
 using SMSBO.Web.Pages.Marks.Mark12.ViewModels;
 using AutoMapper;
+using SMSBO.Web.Pages.Marks.Mark;
+using static SMSBO.Web.Pages.Marks.Mark.CreateModalModel;
+using static SMSBO.Web.Pages.Marks.Mark.EditModalModel;
+
 namespace SMSBO.Web;
 
 public class SMSBOWebAutoMapperProfile : Profile
@@ -34,12 +35,17 @@ public class SMSBOWebAutoMapperProfile : Profile
             CreateMap<CreateEditStudent11ViewModel, CreateUpdateStudent11Dto>();
             CreateMap<Student12Dto, CreateEditStudent12ViewModel>();
             CreateMap<CreateEditStudent12ViewModel, CreateUpdateStudent12Dto>();
-            
-            CreateMap<MarkDto, CreateEditMarkViewModel>();
-            CreateMap<CreateEditMarkViewModel, CreateUpdateMarkDto>();
-            CreateMap<Mark11Dto, CreateEditMark11ViewModel>();
+
+        CreateMap<CreateMarkViewModel, CreateUpdateMarkDto>();
+        CreateMap<MarkDto, EditMarkViewModel>();
+        CreateMap<EditMarkViewModel, CreateUpdateMarkDto>();
+        CreateMap<Mark11Dto, CreateEditMark11ViewModel>();
             CreateMap<CreateEditMark11ViewModel, CreateUpdateMark11Dto>();
             CreateMap<Mark12Dto, CreateEditMark12ViewModel>();
             CreateMap<CreateEditMark12ViewModel, CreateUpdateMark12Dto>();
+        CreateMap<Pages.Marks.Mark.CreateModalModel.CreateMarkViewModel, CreateUpdateMarkDto>();
+        CreateMap<MarkDto, Pages.Marks.Mark.EditModalModel.EditMarkViewModel>();
+        CreateMap<Pages.Marks.Mark.EditModalModel.EditMarkViewModel, CreateUpdateMarkDto>();
+
     }
 }

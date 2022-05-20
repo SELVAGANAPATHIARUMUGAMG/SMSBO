@@ -165,7 +165,7 @@ public class SMSBODbContext :
                 b.ConfigureByConvention();
 
                 /* Configure more properties here */
-                //b.HasOne<Student>().WithMany().HasForeignKey(x => x.StudentId).IsRequired();
+                b.HasOne<Student>().WithMany().HasForeignKey(x => x.StudentId).IsRequired();
 
             });
 

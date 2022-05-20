@@ -1,15 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SMSBO.Marks;
 using SMSBO.Marks.Dtos;
-using SMSBO.Web.Pages.Marks.Mark.ViewModels;
+using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form;
 
 namespace SMSBO.Web.Pages.Marks.Mark
 {
     public class CreateModalModel : SMSBOPageModel
     {
         [BindProperty]
-        public CreateEditMarkViewModel ViewModel { get; set; }
+        public CreateMarkViewModel ViewModel { get; set; }
+        public List<SelectListItem> Students { get; set; }
 
         private readonly IMarkAppService _service;
 
@@ -17,12 +24,44 @@ namespace SMSBO.Web.Pages.Marks.Mark
         {
             _service = service;
         }
-
-        public virtual async Task<IActionResult> OnPostAsync()
+        public async Task OnGetAsync()
         {
-            var dto = ObjectMapper.Map<CreateEditMarkViewModel, CreateUpdateMarkDto>(ViewModel);
-            await _service.CreateAsync(dto);
+            ViewModel = new CreateMarkViewModel();
+
+            var studentLookup = await _service.GetAuthorLookupAsync();
+            Students = studentLookup.Items
+                .Select(x => new SelectListItem(x.Name, x.Id.ToString()))
+                .ToList();
+        }
+        public  async Task<IActionResult> OnPostAsync()
+        {
+            await _service.CreateAsync(ObjectMapper.Map<CreateMarkViewModel, CreateUpdateMarkDto>(ViewModel));
             return NoContent();
         }
+        public class CreateMarkViewModel
+        {
+            [SelectItems(nameof(Students))]
+            [DisplayName("Name")]
+            public Guid StudentId { get; set; }
+
+            [Display(Name = "ExamType")]
+            public ExamTypes ExamType { get; set; }
+
+            [Display(Name = "Tamil")]
+            public int Tamil { get; set; }
+
+            [Display(Name = "English")]
+            public int English { get; set; }
+
+            [Display(Name = "Maths")]
+            public int Maths { get; set; }
+
+            [Display(Name = "Science")]
+            public int Science { get; set; }
+
+            [Display(Name = "SocialScience")]
+            public int SocialScience { get; set; }
+        }
     }
+    
 }

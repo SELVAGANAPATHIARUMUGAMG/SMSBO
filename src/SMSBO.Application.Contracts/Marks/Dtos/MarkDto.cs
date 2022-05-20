@@ -17,5 +17,7 @@ namespace SMSBO.Marks.Dtos
         public int Science { get; set; }
 
         public int SocialScience { get; set; }
+        public Guid StudentId { get; set; }
+        public string Name { get; set; }
     }
 }
